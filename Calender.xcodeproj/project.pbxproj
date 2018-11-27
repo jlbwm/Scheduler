@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88A6E244AF32D4C5143FFC1A /* Pods_Calender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E0A171B455F659724A4605 /* Pods_Calender.framework */; };
 		9CFC42FB21AC608A001A92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */; };
 		9CFC42FD21AC608A001A92C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC42FC21AC608A001A92C0 /* ViewController.swift */; };
 		9CFC430021AC608A001A92C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC42FE21AC608A001A92C0 /* Main.storyboard */; };
 		9CFC430221AC608B001A92C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC430121AC608B001A92C0 /* Assets.xcassets */; };
 		9CFC430521AC608B001A92C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC430321AC608B001A92C0 /* LaunchScreen.storyboard */; };
+		9CFC430D21AC62BC001A92C0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC430C21AC62BC001A92C0 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41FE31932911AA4214C9C13C /* Pods-Calender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calender.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calender/Pods-Calender.release.xcconfig"; sourceTree = "<group>"; };
+		57E0A171B455F659724A4605 /* Pods_Calender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		974E810AFAD888949BB21AD3 /* Pods-Calender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Calender/Pods-Calender.debug.xcconfig"; sourceTree = "<group>"; };
 		9CFC42F721AC608A001A92C0 /* Calender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CFC42FC21AC608A001A92C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		9CFC430121AC608B001A92C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CFC430421AC608B001A92C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CFC430621AC608B001A92C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CFC430C21AC62BC001A92C0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A6E244AF32D4C5143FFC1A /* Pods_Calender.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		309A280C103260087B0A49A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				974E810AFAD888949BB21AD3 /* Pods-Calender.debug.xcconfig */,
+				41FE31932911AA4214C9C13C /* Pods-Calender.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9CFC42EE21AC608A001A92C0 = {
 			isa = PBXGroup;
 			children = (
 				9CFC42F921AC608A001A92C0 /* Calender */,
 				9CFC42F821AC608A001A92C0 /* Products */,
+				309A280C103260087B0A49A3 /* Pods */,
+				B256BCEC94D2B8326BA08DC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +78,17 @@
 				9CFC430121AC608B001A92C0 /* Assets.xcassets */,
 				9CFC430321AC608B001A92C0 /* LaunchScreen.storyboard */,
 				9CFC430621AC608B001A92C0 /* Info.plist */,
+				9CFC430C21AC62BC001A92C0 /* CustomCell.swift */,
 			);
 			path = Calender;
+			sourceTree = "<group>";
+		};
+		B256BCEC94D2B8326BA08DC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57E0A171B455F659724A4605 /* Pods_Calender.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CFC430921AC608B001A92C0 /* Build configuration list for PBXNativeTarget "Calender" */;
 			buildPhases = (
+				F1C64DB815D59AD27FB36171 /* [CP] Check Pods Manifest.lock */,
 				9CFC42F321AC608A001A92C0 /* Sources */,
 				9CFC42F421AC608A001A92C0 /* Frameworks */,
 				9CFC42F521AC608A001A92C0 /* Resources */,
+				25EE12BC7E99CF3FD459F9C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +159,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25EE12BC7E99CF3FD459F9C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Calender/Pods-Calender-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Calender/Pods-Calender-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1C64DB815D59AD27FB36171 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Calender-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9CFC42F321AC608A001A92C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9CFC42FD21AC608A001A92C0 /* ViewController.swift in Sources */,
+				9CFC430D21AC62BC001A92C0 /* CustomCell.swift in Sources */,
 				9CFC42FB21AC608A001A92C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +357,7 @@
 		};
 		9CFC430A21AC608B001A92C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 974E810AFAD888949BB21AD3 /* Pods-Calender.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +376,7 @@
 		};
 		9CFC430B21AC608B001A92C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41FE31932911AA4214C9C13C /* Pods-Calender.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
