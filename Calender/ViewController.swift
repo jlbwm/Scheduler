@@ -66,11 +66,8 @@ class ViewController: UIViewController {
             cell.selectedView.backgroundColor = UIColor.red
             cell.dateLabel.textColor = UIColor.white
             
-            
-            
-            
-            
         } else {
+            cell.selectedView.backgroundColor = UIColor(red:0.39, green:0.81, blue:0.95, alpha:1.0)
             if cellState.isSelected {
                 cell.selectedView.isHidden = false
                 cell.dateLabel.textColor = UIColor.white
