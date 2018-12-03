@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		88A6E244AF32D4C5143FFC1A /* Pods_Calender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E0A171B455F659724A4605 /* Pods_Calender.framework */; };
+		9C94EFE921B4DAA800DA31A7 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */; };
+		9C94EFEB21B4DAC800DA31A7 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */; };
+		9C94EFED21B4DC9700DA31A7 /* DateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */; };
+		9CC914A221ADF14C004CF0AC /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC914A121ADF14C004CF0AC /* ItemViewCell.swift */; };
+		9CC914C321AF95AB004CF0AC /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC914C221AF95AB004CF0AC /* EventModel.swift */; };
 		9CFC42FB21AC608A001A92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */; };
 		9CFC42FD21AC608A001A92C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC42FC21AC608A001A92C0 /* ViewController.swift */; };
 		9CFC430021AC608A001A92C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC42FE21AC608A001A92C0 /* Main.storyboard */; };
@@ -20,6 +25,11 @@
 		41FE31932911AA4214C9C13C /* Pods-Calender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calender.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calender/Pods-Calender.release.xcconfig"; sourceTree = "<group>"; };
 		57E0A171B455F659724A4605 /* Pods_Calender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974E810AFAD888949BB21AD3 /* Pods-Calender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Calender/Pods-Calender.debug.xcconfig"; sourceTree = "<group>"; };
+		9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsViewController.swift; sourceTree = "<group>"; };
+		9CC914A121ADF14C004CF0AC /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
+		9CC914C221AF95AB004CF0AC /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		9CFC42F721AC608A001A92C0 /* Calender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CFC42FC21AC608A001A92C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +61,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9CC914C121AF956D004CF0AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CC914C221AF95AB004CF0AC /* EventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9CFC42EE21AC608A001A92C0 = {
 			isa = PBXGroup;
 			children = (
@@ -72,9 +90,14 @@
 		9CFC42F921AC608A001A92C0 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
+				9CC914C121AF956D004CF0AC /* Model */,
 				9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */,
+				9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */,
+				9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */,
 				9CFC42FC21AC608A001A92C0 /* ViewController.swift */,
 				9CFC42FE21AC608A001A92C0 /* Main.storyboard */,
+				9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */,
+				9CC914A121ADF14C004CF0AC /* ItemViewCell.swift */,
 				9CFC430121AC608B001A92C0 /* Assets.xcassets */,
 				9CFC430321AC608B001A92C0 /* LaunchScreen.storyboard */,
 				9CFC430621AC608B001A92C0 /* Info.plist */,
@@ -213,7 +236,12 @@
 			files = (
 				9CFC42FD21AC608A001A92C0 /* ViewController.swift in Sources */,
 				9CFC430D21AC62BC001A92C0 /* CustomCell.swift in Sources */,
+				9C94EFEB21B4DAC800DA31A7 /* EventViewController.swift in Sources */,
 				9CFC42FB21AC608A001A92C0 /* AppDelegate.swift in Sources */,
+				9CC914C321AF95AB004CF0AC /* EventModel.swift in Sources */,
+				9C94EFED21B4DC9700DA31A7 /* DateDetailsViewController.swift in Sources */,
+				9CC914A221ADF14C004CF0AC /* ItemViewCell.swift in Sources */,
+				9C94EFE921B4DAA800DA31A7 /* TaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

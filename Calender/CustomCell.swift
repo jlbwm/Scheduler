@@ -14,4 +14,3 @@ class CustomCell: JTAppleCell {
     @IBOutlet weak var selectedView: UIView!
     
 }
-
