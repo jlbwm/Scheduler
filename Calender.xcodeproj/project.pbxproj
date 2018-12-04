@@ -19,6 +19,7 @@
 		9CFC430221AC608B001A92C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC430121AC608B001A92C0 /* Assets.xcassets */; };
 		9CFC430521AC608B001A92C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC430321AC608B001A92C0 /* LaunchScreen.storyboard */; };
 		9CFC430D21AC62BC001A92C0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC430C21AC62BC001A92C0 /* CustomCell.swift */; };
+		D8D4E4C021B74798009AB120 /* ReoccuringEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4E4BF21B74798009AB120 /* ReoccuringEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9CFC430421AC608B001A92C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CFC430621AC608B001A92C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CFC430C21AC62BC001A92C0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D8D4E4BF21B74798009AB120 /* ReoccuringEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReoccuringEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */,
 				9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */,
 				9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */,
+				D8D4E4BF21B74798009AB120 /* ReoccuringEventViewController.swift */,
 				9CFC42FC21AC608A001A92C0 /* ViewController.swift */,
 				9CFC42FE21AC608A001A92C0 /* Main.storyboard */,
 				9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */,
@@ -241,6 +244,7 @@
 				9CC914C321AF95AB004CF0AC /* EventModel.swift in Sources */,
 				9C94EFED21B4DC9700DA31A7 /* DateDetailsViewController.swift in Sources */,
 				9CC914A221ADF14C004CF0AC /* ItemViewCell.swift in Sources */,
+				D8D4E4C021B74798009AB120 /* ReoccuringEventViewController.swift in Sources */,
 				9C94EFE921B4DAA800DA31A7 /* TaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

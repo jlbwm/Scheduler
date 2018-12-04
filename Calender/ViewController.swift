@@ -246,11 +246,16 @@ extension ViewController {
             
             self.performSegue(withIdentifier: "gotoEvent", sender: nil)
         }
-        let action3 = UIAlertAction(title: "Never Mind", style: .default, handler: nil)
+        let action3 = UIAlertAction(title: "Add Reoccuring Event", style: .default){ (action) in
+            
+            self.performSegue(withIdentifier: "gotoReoccuring", sender: nil)
+        }
+        let action4 = UIAlertAction(title: "Never Mind", style: .default, handler: nil)
         
         alert.addAction(action1)
         alert.addAction(action2)
         alert.addAction(action3)
+        alert.addAction(action4)
         present(alert, animated: true);
         
     }

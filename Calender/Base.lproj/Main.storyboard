@@ -277,6 +277,7 @@
                         <outlet property="yearLabel" destination="t2S-Gy-rGf" id="b4t-3y-8lW"/>
                         <segue destination="HW2-KU-iBV" kind="show" identifier="gotoTask" id="j6F-D7-srn"/>
                         <segue destination="mXr-a5-hZn" kind="show" identifier="gotoEvent" id="6V2-Yz-J9D"/>
+                        <segue destination="Wfu-V7-kK3" kind="show" identifier="gotoReoccuring" id="jSh-lC-mhT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -305,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5Q-CG-455" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="-122"/>
+            <point key="canvasLocation" x="1932" y="-323"/>
         </scene>
         <!--Date Details View Controller-->
         <scene sceneID="S6i-VT-dcP">
@@ -410,6 +411,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smi-J9-y4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1932" y="591"/>
+        </scene>
+        <!--Reoccuring Event View Controller-->
+        <scene sceneID="kGp-sP-mzn">
+            <objects>
+                <viewController id="Wfu-V7-kK3" customClass="ReoccuringEventViewController" customModule="Calender" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIM-8g-qCI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ybh-qD-Aiw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsG-xV-ZXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2758" y="49"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aNZ-xA-J2q">
