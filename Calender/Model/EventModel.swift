@@ -20,17 +20,30 @@ struct User {
 }
 
 struct Event {
-    var frequence: Frequence = .None
-    var week: [Week]
-    var date: Date
+//    var frequence: Frequence = .None
+//    var week: [Week]
+//    var date: Date
+//    var startTime: Date
+//    var endTime: Date
+//    var location: String
+//    var category: Category
+//    var title: String
+//    var isNotification: Bool
+//    var notifyTime: Date
+//    var notes: String
+    
+    var title: String
+    var location: String
+    var startDate: Date
+    var endDate: Date
     var startTime: Date
     var endTime: Date
-    var location: String
     var category: Category
-    var title: String
-    var isNotification: Bool
     var notifyTime: Date
-    var notes: String
+    var isReocurring: Bool
+    var week: [Week]
+    
+    // title, location, startDate, startTime, endDate, endTime, category, notifyTime, isReoccuring, week
 }
 
 enum Category {

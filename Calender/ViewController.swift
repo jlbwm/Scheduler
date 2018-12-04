@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBAction func addEvent(_ sender: Any) {
         
-        createAlert(title: "add an evnet")
+        createAlert(title: "Add Event")
     }
     @IBAction func gotoToday(_ sender: Any) {
         
@@ -239,10 +239,10 @@ extension ViewController {
     func createAlert(title: String) {
         let alert = UIAlertController(title: title, message:"", preferredStyle: .actionSheet)
         
-        let action1 = UIAlertAction(title: "add a task", style: .default) { (action) in
+        let action1 = UIAlertAction(title: "Add Task", style: .default) { (action) in
             self.performSegue(withIdentifier: "gotoTask", sender: nil)
         }
-        let action2 = UIAlertAction(title: "add an event", style: .default) { (action) in
+        let action2 = UIAlertAction(title: "Add Event", style: .default) { (action) in
             
             self.performSegue(withIdentifier: "gotoEvent", sender: nil)
         }
