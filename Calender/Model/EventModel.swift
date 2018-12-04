@@ -19,19 +19,7 @@ struct User {
     var isDifficult: Bool
 }
 
-struct Event {
-//    var frequence: Frequence = .None
-//    var week: [Week]
-//    var date: Date
-//    var startTime: Date
-//    var endTime: Date
-//    var location: String
-//    var category: Category
-//    var title: String
-//    var isNotification: Bool
-//    var notifyTime: Date
-//    var notes: String
-    
+struct ReoccuringEvent {
     var title: String
     var location: String
     var startDate: Date
@@ -39,11 +27,27 @@ struct Event {
     var startTime: Date
     var endTime: Date
     var category: Category
-    var notifyTime: Date
-    var isReocurring: Bool
     var week: [Week]
-    
-    // title, location, startDate, startTime, endDate, endTime, category, notifyTime, isReoccuring, week
+}
+
+struct StandAloneEvent{
+    var title: String
+    var location: String
+    var startDate: Date
+    var StartTime: Date
+    var EndTime: Date
+    var category: Category
+}
+
+struct Tasks{
+    var title: String
+    var location: String
+    var deadline: Date
+    var isSplittable: Bool
+    var category: Category
+    var Priority: Int
+    var Difficult: Int
+    //var ExpectedAllocatedTime: TimeEnum
 }
 
 enum Category {
@@ -72,4 +76,3 @@ enum Week: String {
     case friday
     case saturdays
 }
-
