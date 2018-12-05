@@ -14,9 +14,13 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var dateText: UITextField!
     @IBOutlet weak var timeText: UITextField!
+    @IBOutlet weak var estimatedTimeText: UITextField!
+    @IBOutlet weak var sessionsText: UITextField!
     
     private var datePicker: UIDatePicker?
-    private var timePicker: UIDatePicker?
+    private var dueDateTimePicker: UIDatePicker?
+    private var estimatedTimePicker: UIDatePicker?
+    private var sessionsPicker: Picker
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,29 +29,47 @@ class TaskViewController: UIViewController {
         datePicker = UIDatePicker();
         datePicker?.datePickerMode = .date
         
-        timePicker = UIDatePicker();
-        timePicker?.datePickerMode = .time
+        dueDateTimePicker = UIDatePicker();
+        dueDateTimePicker?.datePickerMode = .time
+        
+        estimatedTimePicker = UIDatePicker();
+        estimatedTimePicker?.datePickerMode = .time
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
         
         dateText.inputView = datePicker
         datePicker?.addTarget(self, action: #selector(TaskViewController.dateChanged(datePicker:)), for: .valueChanged)
         
-        timeText.inputView = timePicker
-        timePicker?.addTarget(self, action: #selector(TaskViewController.timeChanged(timePicker:)), for: .valueChanged)
+        timeText.inputView = dueDateTimePicker
+        dueDateTimePicker?.addTarget(self, action: #selector(TaskViewController.dueDateTimeChanged(dueDateTimePicker:)), for: .valueChanged)
+        
+        estimatedTimeText.inputView = estimatedTimePicker
+        estimatedTimePicker?.addTarget(self, action: #selector(TaskViewController.estimatedTimeChanged(estimatedTimePicker:)), for: .valueChanged)
         
         // Do any additional setup after loading the view.
     }
     
-    @objc func timeChanged(timePicker: UIDatePicker){
+    @objc func estimatedTimeChanged(estimatedTimePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
-        timeText.text = dateFormatter.string(from: timePicker.date)
-        view.endEditing(true)
+        estimatedTimeText.text = dateFormatter.string(from: estimatedTimePicker.date)
+    }
+    
+    @objc func dueDateTimeChanged(dueDateTimePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        timeText.text = dateFormatter.string(from: dueDateTimePicker.date)
     }
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         dateText.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
     
