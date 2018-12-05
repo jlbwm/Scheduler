@@ -55,7 +55,6 @@ enum Category {
     case work
     case social
     case fitness
-    case rest
     case other
 }
 
