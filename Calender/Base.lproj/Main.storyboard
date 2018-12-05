@@ -299,14 +299,80 @@
                                     <navigationItem title="Add a task" largeTitleDisplayMode="always" id="3WJ-fo-Acw"/>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bU2-vO-btv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="160"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1oN-Ro-HL5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="sMI-f6-Bss"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnZ-ZC-GQW">
+                                        <rect key="frame" x="0.0" y="40" width="414" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-oo-yjQ">
+                                        <rect key="frame" x="0.0" y="80" width="414" height="40"/>
+                                        <color key="backgroundColor" red="0.23093716104215298" green="0.82455609715664324" blue="0.31811390133543171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ag7-ps-N4v">
+                                        <rect key="frame" x="0.0" y="120" width="414" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="coI-Os-M0F">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QDm-C3-4kb">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QE7-8O-vuA"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ihA-oo-yjQ" firstAttribute="top" secondItem="vnZ-ZC-GQW" secondAttribute="bottom" id="XgR-6p-4ds"/>
+                                    <constraint firstItem="vnZ-ZC-GQW" firstAttribute="top" secondItem="1oN-Ro-HL5" secondAttribute="bottom" id="eu8-P0-BR1"/>
+                                    <constraint firstItem="ihA-oo-yjQ" firstAttribute="height" secondItem="vnZ-ZC-GQW" secondAttribute="height" id="nho-ab-4Q2"/>
+                                    <constraint firstItem="vnZ-ZC-GQW" firstAttribute="height" secondItem="1oN-Ro-HL5" secondAttribute="height" id="uxM-Cm-QWm"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PKW-kx-5h1" firstAttribute="bottom" secondItem="bU2-vO-btv" secondAttribute="bottom" id="5cz-lc-Hil"/>
+                            <constraint firstItem="bU2-vO-btv" firstAttribute="top" secondItem="PKW-kx-5h1" secondAttribute="top" id="Cjk-TN-vru"/>
+                            <constraint firstItem="PKW-kx-5h1" firstAttribute="trailing" secondItem="bU2-vO-btv" secondAttribute="trailing" id="Om5-yG-K7r"/>
+                            <constraint firstItem="bU2-vO-btv" firstAttribute="leading" secondItem="PKW-kx-5h1" secondAttribute="leading" id="Se5-mx-4YR"/>
+                            <constraint firstItem="1oN-Ro-HL5" firstAttribute="top" secondItem="PKW-kx-5h1" secondAttribute="top" id="kBs-dF-IAB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PKW-kx-5h1"/>
                     </view>
+                    <connections>
+                        <outlet property="dateText" destination="coI-Os-M0F" id="ANc-3k-sBX"/>
+                        <outlet property="locationText" destination="vnZ-ZC-GQW" id="Du3-XK-beY"/>
+                        <outlet property="timeText" destination="QDm-C3-4kb" id="QMP-MF-ovg"/>
+                        <outlet property="titleText" destination="1oN-Ro-HL5" id="wJh-A5-NAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5Q-CG-455" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="-323"/>
+            <point key="canvasLocation" x="1931.8840579710147" y="-323.4375"/>
         </scene>
         <!--Date Details View Controller-->
         <scene sceneID="S6i-VT-dcP">
