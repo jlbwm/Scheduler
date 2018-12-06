@@ -51,12 +51,12 @@ class EventModel {
         //var ExpectedAllocatedTime: TimeEnum
     }
     
-    enum Category {
-        case school
-        case work
-        case social
-        case fitness
-        case other
+    enum Category: String {
+        case school = "School"
+        case work = "Work"
+        case social = "Social"
+        case fitness = "Fitness"
+        case other = "Other"
     }
     
     enum Frequence {
@@ -64,7 +64,6 @@ class EventModel {
         case Weekly
         case Monthly
         case None
-        
     }
     
     enum Week: String {
@@ -74,6 +73,6 @@ class EventModel {
         case wednesday
         case thursday
         case friday
-        case saturdays
+        case saturday
     }
 }

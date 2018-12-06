@@ -25,6 +25,9 @@ class EventViewController: UIViewController {
     private var StartTimePicker: UIDatePicker?
     private var EndTimePicker: UIDatePicker?
     
+    private var categorySelection: String?
+    private var SelectedNofication: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add Event"
@@ -80,6 +83,13 @@ class EventViewController: UIViewController {
     }
     
     @IBAction func handleNotificationSelection(_ sender: UIButton) {
+        CategoryButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.3, animations:{
+                if(!button.isHidden){
+                    button.isHidden = true;
+                }
+            })
+        }
         NotificationButtons.forEach{(button) in
             UIView.animate(withDuration: 0.3, animations:{
                 button.isHidden = !button.isHidden;
@@ -89,9 +99,28 @@ class EventViewController: UIViewController {
     }
     
     @IBAction func ChooseNotificationAction(_ sender: UIButton) {
+        guard let title = sender.currentTitle else{
+            return;
+        }
+        
+        NotificationButtons.forEach{(button) in
+            button.isSelected = false;
+        }
+        
+        sender.isSelected = true;
+        SelectedNofication = title;
+        print(SelectedNofication!)
+
     }
     
     @IBAction func handleCategorySelection(_ sender: UIButton) {
+        NotificationButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.3, animations:{
+                if(!button.isHidden){
+                    button.isHidden = true;
+                }
+            })
+        }
         CategoryButtons.forEach{(button) in
             UIView.animate(withDuration: 0.3, animations:{
                 button.isHidden = !button.isHidden;
@@ -100,6 +129,17 @@ class EventViewController: UIViewController {
         }
     }
     
-    @IBAction func ChooseCategoryAction(_ sender: Any) {
+    @IBAction func ChooseCategoryAction(_ sender: UIButton) {
+        guard let title = sender.currentTitle else{
+            return;
+        }
+        
+        CategoryButtons.forEach{(button) in
+            button.isSelected = false;
+        }
+        
+        sender.isSelected = true;
+        categorySelection = title;
+        print(categorySelection!)
     }
 }
