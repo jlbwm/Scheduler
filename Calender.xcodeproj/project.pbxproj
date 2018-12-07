@@ -11,6 +11,7 @@
 		9C94EFE921B4DAA800DA31A7 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */; };
 		9C94EFEB21B4DAC800DA31A7 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */; };
 		9C94EFED21B4DC9700DA31A7 /* DateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */; };
+		9CC52D7721B99FDD00759CEF /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC52D7621B99FDD00759CEF /* DateModel.swift */; };
 		9CC914A221ADF14C004CF0AC /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC914A121ADF14C004CF0AC /* ItemViewCell.swift */; };
 		9CC914C321AF95AB004CF0AC /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC914C221AF95AB004CF0AC /* EventModel.swift */; };
 		9CFC42FB21AC608A001A92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsViewController.swift; sourceTree = "<group>"; };
+		9CC52D7621B99FDD00759CEF /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		9CC914A121ADF14C004CF0AC /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
 		9CC914C221AF95AB004CF0AC /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		9CFC42F721AC608A001A92C0 /* Calender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calender.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 		9CC914C121AF956D004CF0AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CC52D7621B99FDD00759CEF /* DateModel.swift */,
 				9CC914C221AF95AB004CF0AC /* EventModel.swift */,
 			);
 			path = Model;
@@ -95,11 +98,11 @@
 				9CC914C121AF956D004CF0AC /* Model */,
 				9CFC42FA21AC608A001A92C0 /* AppDelegate.swift */,
 				9C94EFE821B4DAA800DA31A7 /* TaskViewController.swift */,
-				9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */,
 				D8D4E4BF21B74798009AB120 /* ReoccuringEventViewController.swift */,
+				9C94EFEA21B4DAC800DA31A7 /* EventViewController.swift */,
+				9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */,
 				9CFC42FC21AC608A001A92C0 /* ViewController.swift */,
 				9CFC42FE21AC608A001A92C0 /* Main.storyboard */,
-				9C94EFEC21B4DC9700DA31A7 /* DateDetailsViewController.swift */,
 				9CC914A121ADF14C004CF0AC /* ItemViewCell.swift */,
 				9CFC430121AC608B001A92C0 /* Assets.xcassets */,
 				9CFC430321AC608B001A92C0 /* LaunchScreen.storyboard */,
@@ -196,12 +199,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Calender/Pods-Calender-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -242,6 +249,7 @@
 				9C94EFEB21B4DAC800DA31A7 /* EventViewController.swift in Sources */,
 				9CFC42FB21AC608A001A92C0 /* AppDelegate.swift in Sources */,
 				9CC914C321AF95AB004CF0AC /* EventModel.swift in Sources */,
+				9CC52D7721B99FDD00759CEF /* DateModel.swift in Sources */,
 				9C94EFED21B4DC9700DA31A7 /* DateDetailsViewController.swift in Sources */,
 				9CC914A221ADF14C004CF0AC /* ItemViewCell.swift in Sources */,
 				D8D4E4C021B74798009AB120 /* ReoccuringEventViewController.swift in Sources */,

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBAction func addEvent(_ sender: Any) {
         
         createAlert(title: "Add Event")
+        
     }
     @IBAction func gotoToday(_ sender: Any) {
         

@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EventViewController: UIViewController {
-
+    
+    let realm = try! Realm()
+    
+    
+    @IBAction func onCreatButtonClicked(_ sender: Any) {
+        saveCurrentEvent()
+        navigationController?.popViewController(animated: true)
+    }
     @IBOutlet var NotificationButtons: [UIButton]!
     
     @IBOutlet var CategoryButtons: [UIButton]!
@@ -30,7 +38,7 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Add Event"
+        self.title = "Add Standalone Event"
 
         datePicker = UIDatePicker();
         datePicker?.datePickerMode = .date
@@ -142,4 +150,101 @@ class EventViewController: UIViewController {
         categorySelection = title;
         print(categorySelection!)
     }
+    
+    
+    //Data Persistence part
+    
+    //get the currentDate from Realm, if don't have that date, create one else load it
+    //createButton click, create the standAloneEvent
+    //store it in Realm
+    
+    func saveCurrentEvent() {
+        do{
+            try realm.write {
+               createEvent()
+            }
+        } catch {
+            print("Error saving new event \(error)")
+        }
+    }
+    
+    func createEvent() {
+        
+        let event = Event()
+        
+        //basic
+        if let title = titleTextField.text,
+            let location = locationTextField.text {
+            event.title = title
+            event.location = location
+        }
+        event.eventType = EventType.StandAlone
+        
+        //just test it as work, can you find where the Category enum selected
+        event.category = Category.work
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeZone = TimeZone.current
+        timeFormatter.dateFormat = "h:mm a"
+        
+        if let startDate = startDateTextField.text,
+            let startTime = startTimeTextField.text,
+            let endTime = endTImeTextField.text {
+            event.startDate = dateFormatter.date(from: startDate)
+            event.StartTime = timeFormatter.date(from: startTime)
+            event.endDate = dateFormatter.date(from: startDate)
+            event.endTime = timeFormatter.date(from: endTime)
+        }
+        
+        //if current date not exist, creat it
+        if getDateModal() == nil {
+            createDateModal()
+        }
+        
+        if let dateModal = getDateModal() {
+            dateModal.events.append(event)
+        }
+    }
+    
+    func createDateModal() {
+        //check whether that day's dateModal created, if not, create it
+        
+        let date = DateModel()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        if let dateString = startDateTextField.text {
+            date.currentDate = dateFormatter.date(from: dateString)
+        }
+        saveDateModal(dateModal: date)
+    }
+    
+    func saveDateModal(dateModal: DateModel) {
+        
+        realm.add(dateModal)
+    }
+    
+    
+    func getDateModal() -> DateModel?{
+        let currentDateModal: DateModel?
+        
+        let dateModals = realm.objects(DateModel.self)
+    
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        if let dateString = startDateTextField.text,
+            let currentDate = dateFormatter.date(from: dateString){
+            currentDateModal = dateModals.filter("currentDate = %@", currentDate).first
+            return currentDateModal
+        }
+        return nil
+        
+    }
+    
+    
 }
