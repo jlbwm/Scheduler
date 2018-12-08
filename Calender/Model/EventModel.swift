@@ -24,6 +24,7 @@ class Event: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var location: String = ""
     var category: Category?
+    var notificationTime: NotificationEnum?
     var eventType: EventType?
     var parentCategory = LinkingObjects(fromType: DateModel.self, property: "events")
     

@@ -34,10 +34,11 @@ class EventViewController: UIViewController {
     private var EndTimePicker: UIDatePicker?
     
     private var category: Category?
-    private var notification: NotificationEnum?
+    private var notificationSelection: NotificationEnum?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Add Standalone Event"
 
         datePicker = UIDatePicker();
@@ -48,7 +49,6 @@ class EventViewController: UIViewController {
         
         EndTimePicker = UIDatePicker();
         EndTimePicker?.datePickerMode = .time
-        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventViewController.viewTapped(gestureRecognizer:)))
         
@@ -63,6 +63,20 @@ class EventViewController: UIViewController {
         endTImeTextField.inputView = EndTimePicker
         EndTimePicker?.addTarget(self, action: #selector(EventViewController.endTimeChanged(EndTimePicker:)), for: .valueChanged)
         // Do any additional setup after loading the view.
+        
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        
+        formatter.dateFormat = "MM/dd/yyyy"
+        let dateString = formatter.string(from: now)
+        
+        startDateTextField.text = dateString
+        
+        formatter.dateFormat = "h:mm a"
+        let timeString = formatter.string(from: now)
+        
+        startTimeTextField.text = timeString
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -114,7 +128,7 @@ class EventViewController: UIViewController {
         
         sender.isSelected = true;
         
-        notification = NotificationEnum(rawValue: title)!
+        notificationSelection = NotificationEnum(rawValue: title)!
     }
     
     @IBAction func handleCategorySelection(_ sender: UIButton) {
@@ -189,6 +203,19 @@ class EventViewController: UIViewController {
             event.category = Category.other
         default:
             event.category = Category.school
+        }
+        
+        switch notificationSelection {
+        case .Fifteen?:
+            event.notificationTime = NotificationEnum.Fifteen
+        case .Thirty?:
+            event.notificationTime = NotificationEnum.Thirty
+        case .FortyFive?:
+            event.notificationTime = NotificationEnum.FortyFive
+        case .Hour?:
+            event.notificationTime = NotificationEnum.Hour
+        default:
+            event.notificationTime = NotificationEnum.Fifteen
         }
         
         let dateFormatter = DateFormatter()
