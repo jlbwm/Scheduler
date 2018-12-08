@@ -71,6 +71,13 @@ enum Category: String {
     case other = "Other"
 }
 
+enum NotificationEnum: String{
+    case Fifteen = "15 Minutes Prior"
+    case Thirty = "30 Minutes Prior"
+    case FortyFive = "45 Minutes Prior"
+    case Hour = "1 Hour Prior"
+}
+
 enum EventType {
     case Task;
     case StandAlone;

@@ -33,8 +33,8 @@ class EventViewController: UIViewController {
     private var StartTimePicker: UIDatePicker?
     private var EndTimePicker: UIDatePicker?
     
-    private var categorySelection: String?
-    private var SelectedNofication: String?
+    private var category: Category?
+    private var notification: NotificationEnum?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,21 +73,18 @@ class EventViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         startTimeTextField.text = dateFormatter.string(from: StartTimePicker.date)
-        view.endEditing(true)
     }
     
     @objc func endTimeChanged(EndTimePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         endTImeTextField.text = dateFormatter.string(from: EndTimePicker.date)
-        view.endEditing(true)
     }
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         startDateTextField.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true)
     }
     
     @IBAction func handleNotificationSelection(_ sender: UIButton) {
@@ -116,9 +113,8 @@ class EventViewController: UIViewController {
         }
         
         sender.isSelected = true;
-        SelectedNofication = title;
-        print(SelectedNofication!)
-
+        
+        notification = NotificationEnum(rawValue: title)!
     }
     
     @IBAction func handleCategorySelection(_ sender: UIButton) {
@@ -147,8 +143,7 @@ class EventViewController: UIViewController {
         }
         
         sender.isSelected = true;
-        categorySelection = title;
-        print(categorySelection!)
+        category = Category(rawValue: title)!
     }
     
     
@@ -181,7 +176,20 @@ class EventViewController: UIViewController {
         event.eventType = EventType.StandAlone
         
         //just test it as work, can you find where the Category enum selected
-        event.category = Category.work
+        switch category {
+        case .school?:
+            event.category = Category.school
+        case .work?:
+            event.category = Category.work
+        case .social?:
+            event.category = Category.social
+        case .fitness?:
+            event.category = Category.fitness
+        case .other?:
+            event.category = Category.other
+        default:
+            event.category = Category.school
+        }
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
