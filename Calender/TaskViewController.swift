@@ -20,7 +20,7 @@ class TaskViewController: UIViewController {
     private var datePicker: UIDatePicker?
     private var dueDateTimePicker: UIDatePicker?
     private var estimatedTimePicker: UIDatePicker?
-    private var sessionsPicker: Picker
+//    private var sessionsPicker: Picker
     
     override func viewDidLoad() {
         super.viewDidLoad()
