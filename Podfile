@@ -7,5 +7,6 @@ target 'Calender' do
 
   # Pods for Calender
   pod 'JTAppleCalendar', '~> 7.0'
+  pod 'RealmSwift'
 
 end

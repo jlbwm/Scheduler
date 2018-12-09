@@ -7,63 +7,44 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct User {
-    var weekdayStartTime: Date
-    var weekdayEndTime: Date
-    var weekendStartTime: Date
-    var weekendEndTime: Date
-    var isMorningPerson: Bool
-    var advanceDate: Int
-    var isSplit: Bool
-    var isDifficult: Bool
+class User {
+    var weekdayStartTime: Date?
+    var weekdayEndTime: Date?
+    var weekendStartTime: Date?
+    var weekendEndTime: Date?
+    var isMorningPerson: Bool = false
+    var advanceDate: Int = 0
+    var isSplit: Bool = false
+    var isDifficult: Bool = false
 }
 
-struct ReoccuringEvent {
-    var title: String
-    var location: String
-    var startDate: Date
-    var endDate: Date
-    var startTime: Date
-    var endTime: Date
-    var category: Category
-    var week: [Week]
-}
-
-struct StandAloneEvent{
-    var title: String
-    var location: String
-    var startDate: Date
-    var StartTime: Date
-    var EndTime: Date
-    var category: Category
-}
-
-struct Tasks{
-    var title: String
-    var location: String
-    var deadline: Date
-    var isSplittable: Bool
-    var category: Category
-    var Priority: Int
-    var Difficult: Int
-    //var ExpectedAllocatedTime: TimeEnum
-}
-
-enum Category {
-    case school
-    case work
-    case social
-    case fitness
-    case other
-}
-
-enum Frequence {
-    case Daily
-    case Weekly
-    case Monthly
-    case None
+class Event: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var location: String = ""
+    var category: Category?
+    var notificationTime: NotificationEnum?
+    var eventType: EventType?
+    var parentCategory = LinkingObjects(fromType: DateModel.self, property: "events")
     
+    
+    //task part (we check the eventType when fetching the event from Datebase)
+    @objc dynamic var deadline: Date?
+    @objc dynamic var isSplittable: Bool = false
+    
+    @objc dynamic var Priority: Int = 0
+    @objc dynamic var Difficult: Int = 0
+    
+    //Event Part
+    //set the standAloneEvent's endDate equals to startDate
+    @objc dynamic var startDate: Date?
+    @objc dynamic var StartTime: Date?
+    @objc dynamic var endDate: Date?
+    @objc dynamic var endTime: Date?
+    
+    //recurringEvent part
+    var week: [Week]?
 }
 
 enum Week: String {
@@ -73,5 +54,34 @@ enum Week: String {
     case wednesday
     case thursday
     case friday
-    case saturdays
+    case saturday
 }
+
+enum Frequence {
+    case Daily
+    case Weekly
+    case Monthly
+    case None
+}
+
+enum Category: String {
+    case school = "School"
+    case work = "Work"
+    case social = "Social"
+    case fitness = "Fitness"
+    case other = "Other"
+}
+
+enum NotificationEnum: String{
+    case Fifteen = "15 Minutes Prior"
+    case Thirty = "30 Minutes Prior"
+    case FortyFive = "45 Minutes Prior"
+    case Hour = "1 Hour Prior"
+}
+
+enum EventType {
+    case Task;
+    case StandAlone;
+    case Recurring;
+}
+
