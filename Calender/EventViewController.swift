@@ -13,11 +13,11 @@ class EventViewController: UIViewController {
     
     let realm = try! Realm()
     
-    
     @IBAction func onCreatButtonClicked(_ sender: Any) {
         saveCurrentEvent()
         navigationController?.popViewController(animated: true)
     }
+    
     @IBOutlet var NotificationButtons: [UIButton]!
     
     @IBOutlet var CategoryButtons: [UIButton]!

@@ -767,10 +767,16 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIj-GV-2je">
-                                <rect key="frame" x="184" y="616" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIj-GV-2je">
+                                <rect key="frame" x="0.0" y="418" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DOU-Gp-unl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="onCreatButtonClicked:" destination="mXr-a5-hZn" eventType="touchUpInside" id="HNS-J8-kBm"/>
                                 </connections>
@@ -779,10 +785,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bXB-Fz-XOT" firstAttribute="leading" secondItem="Yex-vz-bhw" secondAttribute="leading" id="B7M-05-uLa"/>
+                            <constraint firstItem="Yex-vz-bhw" firstAttribute="trailing" secondItem="iIj-GV-2je" secondAttribute="trailing" id="MJM-br-Q0E"/>
                             <constraint firstItem="Yex-vz-bhw" firstAttribute="trailing" secondItem="Thf-Kd-5sn" secondAttribute="trailing" id="Nzy-UU-njb"/>
                             <constraint firstItem="bXB-Fz-XOT" firstAttribute="top" secondItem="3yr-eB-Ecr" secondAttribute="bottom" id="WJ5-IK-c1s"/>
                             <constraint firstItem="3yr-eB-Ecr" firstAttribute="top" secondItem="Thf-Kd-5sn" secondAttribute="bottom" id="WQF-3l-IfU"/>
                             <constraint firstItem="Yex-vz-bhw" firstAttribute="trailing" secondItem="bXB-Fz-XOT" secondAttribute="trailing" id="XmD-6s-Aor"/>
+                            <constraint firstItem="iIj-GV-2je" firstAttribute="top" secondItem="bXB-Fz-XOT" secondAttribute="bottom" id="eAp-0L-QYD"/>
+                            <constraint firstItem="iIj-GV-2je" firstAttribute="leading" secondItem="Yex-vz-bhw" secondAttribute="leading" id="eeI-uZ-zir"/>
                             <constraint firstItem="Thf-Kd-5sn" firstAttribute="leading" secondItem="Yex-vz-bhw" secondAttribute="leading" id="jUp-Zv-4g1"/>
                             <constraint firstItem="Yex-vz-bhw" firstAttribute="trailing" secondItem="3yr-eB-Ecr" secondAttribute="trailing" id="rRk-Sb-YNy"/>
                             <constraint firstItem="Thf-Kd-5sn" firstAttribute="top" secondItem="Yex-vz-bhw" secondAttribute="top" id="uwh-P0-j4K"/>
@@ -921,6 +930,9 @@
                                         <state key="normal" title="Notification">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="handleNotificationAction:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="WML-hl-HgW"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vav-4k-y0b">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -932,6 +944,9 @@
                                         <state key="normal" title="15 Minutes Prior">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleNotificationSelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="W5o-Qd-095"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c00-xD-ScT">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -943,6 +958,9 @@
                                         <state key="normal" title="30 Minutes Prior">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleNotificationSelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="hRs-am-DDR"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqD-wQ-b0N">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -954,6 +972,9 @@
                                         <state key="normal" title="45 Minutes Prior">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleNotificationSelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="Gle-t9-JZ7"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVc-NQ-Cea">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -965,6 +986,9 @@
                                         <state key="normal" title="1 Hour Prior">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleNotificationSelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="XZH-IN-yv0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -981,6 +1005,9 @@
                                         <state key="normal" title="Category">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="handleCategoryAction:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="7B6-DA-ytc"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yu2-YW-LzZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -991,6 +1018,9 @@
                                         <state key="normal" title="School">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleCategorySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="uKK-p4-fi2"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doZ-k4-lcw">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1001,6 +1031,9 @@
                                         <state key="normal" title="Work">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleCategorySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="0fT-2Q-hBT"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7T0-q7-3f1">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1011,6 +1044,9 @@
                                         <state key="normal" title="Social">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleCategorySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="X1e-6t-g3f"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS7-d5-k2z">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1021,6 +1057,9 @@
                                         <state key="normal" title="Fitness">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleCategorySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="bDd-11-rHb"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwN-oo-Pee">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1031,11 +1070,14 @@
                                         <state key="normal" title="Other">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="HandleCategorySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="Xvg-zX-gB5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PhW-ud-4SG">
-                                <rect key="frame" x="0.0" y="408" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="408" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLD-h8-NIH">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1047,9 +1089,12 @@
                                         <state key="normal" title="Weekdays">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="handleWeekdaysAction:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="vWs-yJ-Iga"/>
+                                        </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tpM-Lr-1i7">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="40"/>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tpM-Lr-1i7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFB-XO-e3u">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
@@ -1057,9 +1102,12 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="VSo-n9-hDK"/>
                                                 </constraints>
-                                                <state key="normal" title="S">
+                                                <state key="normal" title="Sun">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="ThX-GC-wNm"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuo-xT-Ddg">
                                                 <rect key="frame" x="59" y="0.0" width="59.333333333333343" height="40"/>
@@ -1070,6 +1118,9 @@
                                                 <state key="normal" title="M">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="f2j-jz-7Ia"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsO-az-ucg">
                                                 <rect key="frame" x="118.33333333333331" y="0.0" width="59" height="40"/>
@@ -1080,6 +1131,9 @@
                                                 <state key="normal" title="T">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="Rbs-k9-Kdh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REQ-uY-qjo">
                                                 <rect key="frame" x="177.33333333333334" y="0.0" width="59.333333333333343" height="40"/>
@@ -1090,6 +1144,9 @@
                                                 <state key="normal" title="W">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="nmw-M5-Pky"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2g-KB-DUe">
                                                 <rect key="frame" x="236.66666666666663" y="0.0" width="59" height="40"/>
@@ -1100,6 +1157,9 @@
                                                 <state key="normal" title="TH">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="5tV-h1-4rq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-Lo-Ijk">
                                                 <rect key="frame" x="295.66666666666669" y="0.0" width="59.333333333333314" height="40"/>
@@ -1110,6 +1170,9 @@
                                                 <state key="normal" title="F">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="DRF-a0-8QV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdd-cz-iSo">
                                                 <rect key="frame" x="355" y="0.0" width="59" height="40"/>
@@ -1117,18 +1180,36 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="vAi-x3-8vd"/>
                                                 </constraints>
-                                                <state key="normal" title="S">
+                                                <state key="normal" title="Sat">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HandleWeekdaySelected:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="QE7-el-sT8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckt-g0-TbU">
+                                <rect key="frame" x="0.0" y="448" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lWB-OX-k6q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCreateButtonClicked:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="rHv-ew-8Tf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HHY-iD-XSv" firstAttribute="top" secondItem="Hz1-Ek-5ak" secondAttribute="bottom" id="4PY-Ww-HWq"/>
+                            <constraint firstItem="ckt-g0-TbU" firstAttribute="top" secondItem="PhW-ud-4SG" secondAttribute="bottom" id="Bb3-Y5-9zW"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="Fbv-2H-GNE" secondAttribute="trailing" id="HxP-e4-ieZ"/>
                             <constraint firstItem="PhW-ud-4SG" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="KBV-c6-KUC"/>
                             <constraint firstItem="Hz1-Ek-5ak" firstAttribute="top" secondItem="Ybh-qD-Aiw" secondAttribute="top" id="Ogo-0A-16g"/>
@@ -1136,13 +1217,40 @@
                             <constraint firstItem="Fbv-2H-GNE" firstAttribute="top" secondItem="HHY-iD-XSv" secondAttribute="bottom" id="V7Y-q4-xjz"/>
                             <constraint firstItem="PhW-ud-4SG" firstAttribute="top" secondItem="Fbv-2H-GNE" secondAttribute="bottom" id="buN-BU-QHw"/>
                             <constraint firstItem="Hz1-Ek-5ak" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="gRW-vG-bKy"/>
+                            <constraint firstItem="ckt-g0-TbU" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="kNt-yJ-D5m"/>
                             <constraint firstItem="Fbv-2H-GNE" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="tlj-j9-MUo"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="HHY-iD-XSv" secondAttribute="trailing" id="ttw-mq-9sR"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="Hz1-Ek-5ak" secondAttribute="trailing" id="wf4-dg-DxJ"/>
+                            <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="ckt-g0-TbU" secondAttribute="trailing" id="xcN-9U-nru"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="PhW-ud-4SG" secondAttribute="trailing" id="y32-fY-1cx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ybh-qD-Aiw"/>
                     </view>
+                    <connections>
+                        <outlet property="WeekdayButtonBar" destination="tpM-Lr-1i7" id="DTp-Ym-onN"/>
+                        <outlet property="endDateTextField" destination="y0c-rk-bLc" id="H9P-DW-ZYG"/>
+                        <outlet property="endTimeTextField" destination="FfN-0I-2oa" id="lkW-Di-aif"/>
+                        <outlet property="locationTextField" destination="mHD-wW-4Xo" id="ulv-4f-2Fz"/>
+                        <outlet property="startDateTextField" destination="Yv0-YM-0nf" id="Wgg-S2-39h"/>
+                        <outlet property="startTimeTextField" destination="twy-H4-09Y" id="cbr-e4-XIG"/>
+                        <outlet property="titleTextField" destination="4KM-66-8lZ" id="KWv-LG-pfx"/>
+                        <outletCollection property="NotificationButtons" destination="Vav-4k-y0b" collectionClass="NSMutableArray" id="fNf-dX-zi7"/>
+                        <outletCollection property="NotificationButtons" destination="c00-xD-ScT" collectionClass="NSMutableArray" id="OFb-Ti-KiA"/>
+                        <outletCollection property="NotificationButtons" destination="TqD-wQ-b0N" collectionClass="NSMutableArray" id="DS7-f2-gfl"/>
+                        <outletCollection property="NotificationButtons" destination="FVc-NQ-Cea" collectionClass="NSMutableArray" id="k9m-HT-OQW"/>
+                        <outletCollection property="CategoryButtons" destination="Yu2-YW-LzZ" collectionClass="NSMutableArray" id="hPT-4e-5n3"/>
+                        <outletCollection property="CategoryButtons" destination="doZ-k4-lcw" collectionClass="NSMutableArray" id="iNe-9F-nXa"/>
+                        <outletCollection property="CategoryButtons" destination="7T0-q7-3f1" collectionClass="NSMutableArray" id="6LK-G3-cdh"/>
+                        <outletCollection property="CategoryButtons" destination="CS7-d5-k2z" collectionClass="NSMutableArray" id="gGM-wY-YxB"/>
+                        <outletCollection property="CategoryButtons" destination="hwN-oo-Pee" collectionClass="NSMutableArray" id="s1e-jI-zAq"/>
+                        <outletCollection property="WeekdayButtons" destination="iFB-XO-e3u" collectionClass="NSMutableArray" id="0Tm-3C-sUw"/>
+                        <outletCollection property="WeekdayButtons" destination="fuo-xT-Ddg" collectionClass="NSMutableArray" id="lto-gJ-AgM"/>
+                        <outletCollection property="WeekdayButtons" destination="XsO-az-ucg" collectionClass="NSMutableArray" id="OMS-3c-hVV"/>
+                        <outletCollection property="WeekdayButtons" destination="REQ-uY-qjo" collectionClass="NSMutableArray" id="ZPV-54-Fbx"/>
+                        <outletCollection property="WeekdayButtons" destination="q2g-KB-DUe" collectionClass="NSMutableArray" id="3KW-6E-CYB"/>
+                        <outletCollection property="WeekdayButtons" destination="1Hv-Lo-Ijk" collectionClass="NSMutableArray" id="D9N-su-cb2"/>
+                        <outletCollection property="WeekdayButtons" destination="cdd-cz-iSo" collectionClass="NSMutableArray" id="IqV-vb-wSl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsG-xV-ZXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
