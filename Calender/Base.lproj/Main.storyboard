@@ -1093,10 +1093,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckt-g0-TbU">
+                                <rect key="frame" x="0.0" y="448" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lWB-OX-k6q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCreateButtonClicked:" destination="Wfu-V7-kK3" eventType="touchUpInside" id="rHv-ew-8Tf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HHY-iD-XSv" firstAttribute="top" secondItem="Hz1-Ek-5ak" secondAttribute="bottom" id="4PY-Ww-HWq"/>
+                            <constraint firstItem="ckt-g0-TbU" firstAttribute="top" secondItem="PhW-ud-4SG" secondAttribute="bottom" id="Bb3-Y5-9zW"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="Fbv-2H-GNE" secondAttribute="trailing" id="HxP-e4-ieZ"/>
                             <constraint firstItem="PhW-ud-4SG" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="KBV-c6-KUC"/>
                             <constraint firstItem="Hz1-Ek-5ak" firstAttribute="top" secondItem="Ybh-qD-Aiw" secondAttribute="top" id="Ogo-0A-16g"/>
@@ -1104,9 +1119,11 @@
                             <constraint firstItem="Fbv-2H-GNE" firstAttribute="top" secondItem="HHY-iD-XSv" secondAttribute="bottom" id="V7Y-q4-xjz"/>
                             <constraint firstItem="PhW-ud-4SG" firstAttribute="top" secondItem="Fbv-2H-GNE" secondAttribute="bottom" id="buN-BU-QHw"/>
                             <constraint firstItem="Hz1-Ek-5ak" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="gRW-vG-bKy"/>
+                            <constraint firstItem="ckt-g0-TbU" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="kNt-yJ-D5m"/>
                             <constraint firstItem="Fbv-2H-GNE" firstAttribute="leading" secondItem="Ybh-qD-Aiw" secondAttribute="leading" id="tlj-j9-MUo"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="HHY-iD-XSv" secondAttribute="trailing" id="ttw-mq-9sR"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="Hz1-Ek-5ak" secondAttribute="trailing" id="wf4-dg-DxJ"/>
+                            <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="ckt-g0-TbU" secondAttribute="trailing" id="xcN-9U-nru"/>
                             <constraint firstItem="Ybh-qD-Aiw" firstAttribute="trailing" secondItem="PhW-ud-4SG" secondAttribute="trailing" id="y32-fY-1cx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ybh-qD-Aiw"/>

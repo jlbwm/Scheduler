@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ReoccuringEventViewController: UIViewController {
 
+    let realm = try! Realm()
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     
@@ -30,6 +33,7 @@ class ReoccuringEventViewController: UIViewController {
     
     private var category: Category?
     private var notificationSelection: NotificationEnum?
+    private var week: Week?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -231,5 +235,133 @@ class ReoccuringEventViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    //Data section
+    
+    @IBAction func onCreateButtonClicked(_ sender: UIButton) {
+        saveCurrentEvent()
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func saveCurrentEvent() {
+        do{
+            try realm.write {
+                createEvent()
+            }
+        } catch {
+            print("Error saving new event \(error)")
+        }
+    }
+    
+    func createEvent() {
+        
+        let event = Event()
+        
+        //basic
+        if let title = titleTextField.text,
+            let location = locationTextField.text {
+            event.title = title
+            event.location = location
+        }
+        event.eventType = EventType.StandAlone
+        
+        //just test it as work, can you find where the Category enum selected
+        switch category {
+        case .school?:
+            event.category = Category.school
+        case .work?:
+            event.category = Category.work
+        case .social?:
+            event.category = Category.social
+        case .fitness?:
+            event.category = Category.fitness
+        case .other?:
+            event.category = Category.other
+        default:
+            event.category = Category.school
+        }
+        
+        switch notificationSelection {
+        case .Fifteen?:
+            event.notificationTime = NotificationEnum.Fifteen
+        case .Thirty?:
+            event.notificationTime = NotificationEnum.Thirty
+        case .FortyFive?:
+            event.notificationTime = NotificationEnum.FortyFive
+        case .Hour?:
+            event.notificationTime = NotificationEnum.Hour
+        default:
+            event.notificationTime = NotificationEnum.Fifteen
+        }
+        
+        WeekdayButtons.forEach{(button) in
+            if(button.isSelected){
+                week = Week(rawValue: ((button.titleLabel?.text!)!))
+                event.week?.append(week!)
+            }
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeZone = TimeZone.current
+        timeFormatter.dateFormat = "h:mm a"
+        
+        if let startDate = startDateTextField.text,
+            let startTime = startTimeTextField.text,
+            let endTime = endTimeTextField.text,
+            let endDate = endDateTextField.text {
+            event.startDate = dateFormatter.date(from: startDate)
+            event.StartTime = timeFormatter.date(from: startTime)
+            event.endDate = dateFormatter.date(from: endDate)
+            event.endTime = timeFormatter.date(from: endTime)
+        }
+        
+        //if current date not exist, creat it
+        if getDateModal() == nil {
+            createDateModal()
+        }
+        
+        if let dateModal = getDateModal() {
+            dateModal.events.append(event)
+        }
+    }
+    
+    func createDateModal() {
+        //check whether that day's dateModal created, if not, create it
+        
+        let date = DateModel()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        if let dateString = startDateTextField.text {
+            date.currentDate = dateFormatter.date(from: dateString)
+        }
+        saveDateModal(dateModal: date)
+    }
+    
+    func saveDateModal(dateModal: DateModel) {
+        
+        realm.add(dateModal)
+    }
+    
+    
+    func getDateModal() -> DateModel?{
+        let currentDateModal: DateModel?
+        
+        let dateModals = realm.objects(DateModel.self)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        if let dateString = startDateTextField.text,
+            let currentDate = dateFormatter.date(from: dateString){
+            currentDateModal = dateModals.filter("currentDate = %@", currentDate).first
+            return currentDateModal
+        }
+        return nil
+        
+    }
 }
