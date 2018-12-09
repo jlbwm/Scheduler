@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    let realm = try! Realm()
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var locationText: UITextField!
@@ -18,6 +21,7 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var sessionsText: UITextField!
     @IBOutlet weak var sessionsPicker: UIPickerView!
     @IBOutlet var categoryButtons: [UIButton]!
+    @IBOutlet var notifactionButtons: [UIButton]!
     
     
     private var datePicker: UIDatePicker?
@@ -25,6 +29,7 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     private var estimatedTimePicker: UIDatePicker?
     
     private var category: Category?
+    private var notification: NotificationEnum?
     
     let pickerDataSource = ["1","2","3","4","5","6","7","8","9"];
     
@@ -107,11 +112,23 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         view.endEditing(true)
     }
     
+    @IBAction func onCreateButtonClicked(_ sender: Any) {
+        saveCurrentEvent()
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func handleCategorySelection(_ sender: UIButton) {
         categoryButtons.forEach{(button) in
             UIView.animate(withDuration: 0.3, animations:{
                 button.isHidden = !button.isHidden;
                 self.view.layoutIfNeeded()
+            })
+        }
+        notifactionButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.3, animations:{
+                if(!button.isHidden){
+                    button.isHidden = true;
+                }
             })
         }
     }
@@ -129,6 +146,36 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         category = Category(rawValue: title)!
     }
     
+    @IBAction func handleNotificationSelection(_ sender: UIButton) {
+        categoryButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.3, animations:{
+                if(!button.isHidden){
+                    button.isHidden = true;
+                }
+            })
+        }
+        notifactionButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.3, animations:{
+                button.isHidden = !button.isHidden;
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBAction func ChooseNotificationAction(_ sender: UIButton) {
+        guard let title = sender.currentTitle else{
+            return;
+        }
+        
+        notifactionButtons.forEach{(button) in
+            button.isSelected = false;
+        }
+        
+        sender.isSelected = true;
+        
+        notification = NotificationEnum(rawValue: title)!
+    }
+    
     
     
 
@@ -141,6 +188,92 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         // Pass the selected object to the new view controller.
     }
     */
+
+    func saveCurrentEvent() {
+        do{
+            try realm.write {
+                createTask()
+            }
+        } catch {
+            print("Error saving new event \(error)")
+        }
+    }
+
+    func createTask() {
+
+        let event = Event()
+
+        //basic
+        if let title = titleText.text,
+            let location = locationText.text {
+            event.title = title
+            event.location = location
+        }
+        event.eventType = EventType.Task
+
+        //just test it as work, can you find where the Category enum selected
+        event.category = category
+
+        event.notificationTime = notification
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeZone = TimeZone.current
+        timeFormatter.dateFormat = "h:mm a"
+
+        if let dueTime = dueDateTimeText.text,
+            let dueDate = dateText.text {
+            event.deadline = dateFormatter.date(from: dueDate)
+        }
+
+        //if current date not exist, creat it
+        if getDateModal() == nil {
+            createDateModal()
+        }
+
+        if let dateModal = getDateModal() {
+            dateModal.events.append(event)
+        }
+    }
+
+    func createDateModal() {
+        //check whether that day's dateModal created, if not, create it
+
+        let date = DateModel()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        if let dateString = dateText.text {
+            date.currentDate = dateFormatter.date(from: dateString)
+        }
+        saveDateModal(dateModal: date)
+    }
+
+    func saveDateModal(dateModal: DateModel) {
+
+        realm.add(dateModal)
+    }
+
+
+    func getDateModal() -> DateModel?{
+        let currentDateModal: DateModel?
+
+        let dateModals = realm.objects(DateModel.self)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        if let dateString = dateText.text,
+            let currentDate = dateFormatter.date(from: dateString){
+            currentDateModal = dateModals.filter("currentDate = %@", currentDate).first
+            return currentDateModal
+        }
+        return nil
+
+    }
     
 
 }
