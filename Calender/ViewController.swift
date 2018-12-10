@@ -165,14 +165,17 @@ extension ViewController: JTAppleCalendarViewDelegate {
 extension ViewController: UICollectionViewDelegate {
     
    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? DateDetailsViewController
         
-        
         if let indexPath = itemsView.indexPathsForSelectedItems {
-            let cell = itemsView.cellForItem(at: indexPath[0]) as! ItemViewCell
-            destination?.selectedDate = cell.date
+            if indexPath.count == 0 {
+                destination?.selectedDate = nil
+            } else {
+                let cell = itemsView.cellForItem(at: indexPath[0]) as? ItemViewCell
+                destination?.selectedDate = cell?.date
+            }
+            
         }
     }
 }
