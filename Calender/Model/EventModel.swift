@@ -47,14 +47,14 @@ class Event: Object {
     var week: [Week]?
 }
 
-enum Week: String {
-    case sunday = "Sun"
-    case monday = "M"
-    case tuesday = "T"
-    case wednesday = "W"
-    case thursday = "TH"
-    case friday = "F"
-    case saturday = "Sat"
+enum Week: Int{
+    case sunday
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
 }
 
 enum Frequence {

@@ -33,7 +33,6 @@ class ReoccuringEventViewController: UIViewController {
     
     private var category: Category?
     private var notificationSelection: NotificationEnum?
-    private var week: Week?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,8 +238,45 @@ class ReoccuringEventViewController: UIViewController {
     //Data section
     
     @IBAction func onCreateButtonClicked(_ sender: UIButton) {
-        saveCurrentEvent()
+        saveMultipleEvents()
         navigationController?.popViewController(animated: true)
+    }
+    
+    func saveMultipleEvents(){
+        
+        var selectedWeekdays: [Int] = []
+        var count = 1
+        
+        WeekdayButtons.forEach{(button) in
+            if(button.isSelected){
+                selectedWeekdays.append(count)
+            }
+            count = count + 1
+        }
+        
+        let calendar = Calendar.current
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MM/dd/yyyy"
+        let startdate = dateformatter.date(from: startDateTextField.text!)
+        let dateEnding = dateformatter.date(from: endDateTextField.text!)
+        
+        // Finding matching dates at midnight - adjust as needed
+        let components = DateComponents(hour: 0, minute: 0) // midnight
+        calendar.enumerateDates(startingAfter: startdate!, matching: components, matchingPolicy: .nextTime) { (date, strict, stop) in
+            if let date = date {
+                if date <= dateEnding! {
+                    let weekDay = calendar.component(.weekday, from: date)
+                    if selectedWeekdays.contains(weekDay) {
+                        saveCurrentEvent()
+                        print(date)
+                    }
+                } else {
+                    stop = true
+                }
+            }
+        }
+        
     }
     
     func saveCurrentEvent() {
@@ -292,13 +328,6 @@ class ReoccuringEventViewController: UIViewController {
             event.notificationTime = NotificationEnum.Hour
         default:
             event.notificationTime = NotificationEnum.Fifteen
-        }
-        
-        WeekdayButtons.forEach{(button) in
-            if(button.isSelected){
-                week = Week(rawValue: ((button.titleLabel?.text!)!))
-                event.week?.append(week!)
-            }
         }
         
         let dateFormatter = DateFormatter()
