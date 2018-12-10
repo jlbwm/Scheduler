@@ -33,6 +33,7 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     let pickerDataSource = ["1","2","3","4","5","6","7","8","9"];
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add a task"
@@ -62,6 +63,8 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         estimatedTimeText.inputView = estimatedTimePicker
         estimatedTimePicker?.addTarget(self, action: #selector(TaskViewController.estimatedTimeChanged(estimatedTimePicker:)), for: .valueChanged)
+        estimatedTimePicker?.datePickerMode = UIDatePicker.Mode.countDownTimer
+        estimatedTimePicker?.minuteInterval = 15
         
         // Do any additional setup after loading the view.
     }
@@ -92,7 +95,7 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @objc func estimatedTimeChanged(estimatedTimePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.dateFormat = "h:mm"
         estimatedTimeText.text = dateFormatter.string(from: estimatedTimePicker.date)
     }
     
