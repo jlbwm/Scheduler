@@ -79,7 +79,7 @@ extension DateDetailsViewController: UITableViewDataSource {
         let cell = dateDetailsTableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! TimeCustomCell
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm"
+        dateFormatter.dateFormat = "h:mm a"
         dateFormatter.timeZone = TimeZone.current
         
         if let date = selectedDate {
