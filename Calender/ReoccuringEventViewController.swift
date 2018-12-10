@@ -269,7 +269,8 @@ class ReoccuringEventViewController: UIViewController {
                     let weekDay = calendar.component(.weekday, from: date)
                     if selectedWeekdays.contains(weekDay) {
                         saveCurrentEvent()
-                        print(date)
+                        startDateTextField.text = dateformatter.string(from: date)
+                        print(startDateTextField.text!)
                     }
                 } else {
                     stop = true
