@@ -12,5 +12,6 @@ class ItemViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var itemsLabel: UILabel!
+    var date: Date?
     
 }

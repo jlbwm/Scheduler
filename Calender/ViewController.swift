@@ -8,8 +8,11 @@
 
 import UIKit
 import JTAppleCalendar
+import RealmSwift
 
 class ViewController: UIViewController {
+    
+    let realm = try! Realm()
     
     @IBAction func addEvent(_ sender: Any) {
         
@@ -105,8 +108,6 @@ class ViewController: UIViewController {
         itemsView.reloadData()
     }
     
-    
-    
 }
 
 extension ViewController: JTAppleCalendarViewDataSource {
@@ -162,8 +163,18 @@ extension ViewController: JTAppleCalendarViewDelegate {
 }
 
 extension ViewController: UICollectionViewDelegate {
-
     
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? DateDetailsViewController
+        
+        
+        if let indexPath = itemsView.indexPathsForSelectedItems {
+            let cell = itemsView.cellForItem(at: indexPath[0]) as! ItemViewCell
+            destination?.selectedDate = cell.date
+        }
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -184,15 +195,26 @@ extension ViewController: UICollectionViewDataSource {
         let date = formater.string(from: dateArray[indexPath.row])
         cell.dateLabel.text = date
         
+        
         let currentWeekOfDay = generateWeekStringByDate(form: dateArray[indexPath.row])
         cell.weekLabel.text = currentWeekOfDay
         if currentWeekOfDay == "Saturday" || currentWeekOfDay == "Sunday" {
             cell.contentView.backgroundColor = UIColor(red:0.02, green:0.81, blue:1.00, alpha:1.0)
         }
        
+        cell.date = dateArray[indexPath.row]
+        //get it from datebase
+        let currentDate = dateArray[indexPath.row]
+        print(currentDate)
         
-        //get it later from the addEvent page
-        cell.itemsLabel.text = "11"
+        let currentDateModel = getDateModal(currentDate: currentDate)
+        
+        if let dateModel = currentDateModel {
+            cell.itemsLabel.text = String(dateModel.events.count)
+        } else {
+            cell.itemsLabel.text = "0"
+        }
+    
         
         return cell
     }
@@ -265,6 +287,24 @@ extension ViewController {
         let dates = [Date()]
         calenderView.selectDates(dates)
     }
+    
+    func getDateModal(currentDate: Date) -> DateModel?{
+        let currentDateModal: DateModel?
+        
+        let dateModals = realm.objects(DateModel.self)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone.current
+        let stringDate = dateFormatter.string(from: currentDate)
+        
+        let compareDate = dateFormatter.date(from: stringDate)
+        
+        currentDateModal = dateModals.filter("currentDate = %@", compareDate).first
+        
+        return currentDateModal
+        
+    }
 }
 
 
@@ -293,4 +333,3 @@ extension Date {
 
     
 }
-
