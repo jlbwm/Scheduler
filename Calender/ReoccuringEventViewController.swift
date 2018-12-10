@@ -300,35 +300,35 @@ class ReoccuringEventViewController: UIViewController {
             event.title = title
             event.location = location
         }
-        event.eventType = EventType.StandAlone
+        event.eventType = EventType.StandAlone.rawValue
         
         //just test it as work, can you find where the Category enum selected
         switch category {
         case .school?:
-            event.category = Category.school
+            event.category = Category.school.rawValue
         case .work?:
-            event.category = Category.work
+            event.category = Category.work.rawValue
         case .social?:
-            event.category = Category.social
+            event.category = Category.social.rawValue
         case .fitness?:
-            event.category = Category.fitness
+            event.category = Category.fitness.rawValue
         case .other?:
-            event.category = Category.other
+            event.category = Category.other.rawValue
         default:
-            event.category = Category.school
+            event.category = Category.school.rawValue
         }
         
         switch notificationSelection {
         case .Fifteen?:
-            event.notificationTime = NotificationEnum.Fifteen
+            event.notificationTime = NotificationEnum.Fifteen.rawValue
         case .Thirty?:
-            event.notificationTime = NotificationEnum.Thirty
+            event.notificationTime = NotificationEnum.Thirty.rawValue
         case .FortyFive?:
-            event.notificationTime = NotificationEnum.FortyFive
+            event.notificationTime = NotificationEnum.FortyFive.rawValue
         case .Hour?:
-            event.notificationTime = NotificationEnum.Hour
+            event.notificationTime = NotificationEnum.Hour.rawValue
         default:
-            event.notificationTime = NotificationEnum.Fifteen
+            event.notificationTime = NotificationEnum.Fifteen.rawValue
         }
         
         let dateFormatter = DateFormatter()

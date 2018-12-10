@@ -212,12 +212,12 @@ class TaskViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             event.title = title
             event.location = location
         }
-        event.eventType = EventType.Task
+        event.eventType = EventType.Task.rawValue
 
         //just test it as work, can you find where the Category enum selected
-        event.category = category
+        event.category = category?.rawValue
 
-        event.notificationTime = notification
+        event.notificationTime = notification?.rawValue
 
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current

@@ -23,9 +23,9 @@ class User {
 class Event: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var location: String = ""
-    var category: Category?
-    var notificationTime: NotificationEnum?
-    var eventType: EventType?
+    var category: String? //get the raw string value from Category
+    var notificationTime: String? //get the raw string value from NotificationEnum
+    var eventType: String? //get the raw string value from EventType
     var parentCategory = LinkingObjects(fromType: DateModel.self, property: "events")
     
     
@@ -79,9 +79,9 @@ enum NotificationEnum: String{
     case Hour = "1 Hour Prior"
 }
 
-enum EventType {
-    case Task;
-    case StandAlone;
-    case Recurring;
+enum EventType: String{
+    case Task = "Task";
+    case StandAlone = "StandAlone";
+    case Recurring = "Recurring";
 }
 

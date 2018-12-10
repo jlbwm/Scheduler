@@ -103,3 +103,17 @@ extension DateDetailsViewController: UITableViewDataSource {
     }
     
 }
+
+//// set the task start
+//extension DateDetailsViewController: UIViewController {
+//    
+//    
+//    
+//    //get event list from dateModal
+//    
+//    //1.get all the event's start time and end time
+//    //2.callcate the avaliable time space
+//    //3.
+//    
+//    
+//}
