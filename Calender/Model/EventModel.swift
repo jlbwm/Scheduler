@@ -23,9 +23,9 @@ class User {
 class Event: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var location: String = ""
-    var category: String? //get the raw string value from Category
-    var notificationTime: String? //get the raw string value from NotificationEnum
-    var eventType: String? //get the raw string value from EventType
+    @objc dynamic var category: String? //get the raw string value from Category
+    @objc dynamic var notificationTime: String? //get the raw string value from NotificationEnum
+    @objc dynamic var eventType: String? //get the raw string value from EventType
     var parentCategory = LinkingObjects(fromType: DateModel.self, property: "events")
     
     
